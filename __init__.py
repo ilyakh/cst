@@ -23,8 +23,15 @@ def get_argument( index ):
 if __name__ == "__main__":
 
     spellbook = Spellbook()
-    spellbook[ get_argument(1) ]
-    
+
+    try:
+        spellbook[ get_argument(1) ]
+    except TypeError as e:
+        print "Spell not found"
+
+    current_path = Context( '.' )
+
+    print current_path.elements()
     
     print "Casting in {0}".format( os.getcwd() )
     

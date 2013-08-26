@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os, shutil
+
 class Spellbook:
     def __init__( self, preset=False, id=False ):
         default = {
@@ -13,10 +15,27 @@ class Spellbook:
         search_result()
 
 
+class Context:
+    def __init__( self, location ):
+        self.location = location
+
+    def elements( self ):
+        result = []
+        for f in os.listdir( self.location ):            
+            if os.path.isfile( f ):
+                result.append( f )
+        return result
+
+    def containers( self ):
+        result = []
+        for c in os.listdir( self.location ):
+            if os.path.isdir( c ):
+                result.append( c )
+        return result
+        
+
 
 def test():
-    import os
-    import shutil
 
     extensions = set()
     
