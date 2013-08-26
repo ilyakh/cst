@@ -51,8 +51,8 @@ def test():
             os.makedirs(path)
         
         for f in files:
-            print "Moving {0} to {1}".format( path, f )
-            shutil.copy( f, path )
+            print "Moving {0} to {1}".format( f, path )
+            shutil.move( f, path )
 
                 
 
